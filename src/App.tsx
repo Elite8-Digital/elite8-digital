@@ -28,7 +28,7 @@ const App = () => {
 	return (
 		<>
 			<AnimatedCursor />
-			{showCurtain && <CurtainAnimation onComplete={handleCurtainComplete} />}
+			{/* {showCurtain && <CurtainAnimation onComplete={handleCurtainComplete} />} */}
 			<AnimatePresence mode="wait">
 				<motion.div
 					initial={{ opacity: 0 }}
