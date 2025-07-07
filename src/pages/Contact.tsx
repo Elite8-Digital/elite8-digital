@@ -37,16 +37,31 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch('https://lets-taxify.onrender.com/api/contact/elite8', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        mode: 'cors',
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to send message');
+      }
+
+      const data = await response.json();
       setSubmitSuccess(true);
       
       setTimeout(() => {
-        setSubmitSuccess(false);
         setFormData({
           name: '',
           email: '',
@@ -54,7 +69,13 @@ const Contact = () => {
           message: ''
         });
       }, 3000);
-    }, 1500);
+    } catch (error: unknown) {
+      console.error('Error submitting form:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
+      alert(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
