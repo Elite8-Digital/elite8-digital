@@ -67,7 +67,7 @@ const MainLayout = ({ children }: Props) => {
 					</Link>
 					
 					<nav className="hidden md:flex space-x-8">
-						{['Home', 'About', 'Contact'].map((item, index) => (
+						{['Home', 'About', 'Contact', 'Careers'].map((item, index) => (
 							<motion.div 
 								key={item} 
 								initial={{ opacity: 0, y: -20 }}
@@ -146,7 +146,7 @@ const MainLayout = ({ children }: Props) => {
 								</div>
 								
 								<nav className="flex flex-col space-y-6">
-									{['Home', 'About', 'Contact'].map((item, index) => (
+									{['Home', 'About', 'Contact', 'Careers'].map((item, index) => (
 										<motion.div
 											key={item}
 											initial={{ opacity: 0, x: -20 }}
@@ -264,7 +264,8 @@ const MainLayout = ({ children }: Props) => {
 								{ name: 'Home', path: '/' },
 								// { name: 'Work', path: '/work' },
 								{ name: 'About', path: '/about' },
-								{ name: 'Contact', path: '/contact' }
+								{ name: 'Contact', path: '/contact' },
+								{ name: 'Careers', path: '/careers' }
 							]},
 							{ title: 'Services', links: [
 								{ name: 'Web Development', path: '#' },

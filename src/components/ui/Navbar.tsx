@@ -33,6 +33,7 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Work', path: '/work' },
     { name: 'About', path: '/about' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Contact', path: '/contact' },
   ];
 
