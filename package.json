@@ -11,7 +11,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist"
 	},
-	"homepage": "https://sohan-gupthak.github.io/elite8digital-assignment/",
+	"homepage": "https://elite8digital.in",
 	"dependencies": {
 		"@react-three/drei": "^10.0.8",
 		"@react-three/fiber": "^9.1.2",

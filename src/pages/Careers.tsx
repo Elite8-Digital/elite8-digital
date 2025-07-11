@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import { motion } from 'framer-motion';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 interface JobOpening {
   id: number;
   title: string;
@@ -78,6 +79,14 @@ const Careers: React.FC = () => {
     success: boolean;
     message: string;
   } | null>(null);
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    email: '',
+    mobile: '',
+    college: '',
+    currentYear: '',
+    resumeLink: '',
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -87,13 +96,63 @@ const Careers: React.FC = () => {
     }));
   };
 
+  const validateForm = () => {
+    let errors: typeof formErrors = {
+      name: '',
+      email: '',
+      mobile: '',
+      college: '',
+      currentYear: '',
+      resumeLink: '',
+    };
+    let valid = true;
+
+    if (!formData.name.trim()) {
+      errors.name = 'Full Name is required.';
+      valid = false;
+    }
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required.';
+      valid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address.';
+      valid = false;
+    }
+    // Mobile validation
+    if (!formData.mobile.trim()) {
+      errors.mobile = 'Mobile number is required.';
+      valid = false;
+    } else if (!/^\d{10}$/.test(formData.mobile)) {
+      errors.mobile = 'Mobile number must be exactly 10 digits.';
+      valid = false;
+    }
+    if (!formData.college.trim()) {
+      errors.college = 'College/University is required.';
+      valid = false;
+    }
+    if (!formData.currentYear.trim()) {
+      errors.currentYear = 'Current Year of Study is required.';
+      valid = false;
+    }
+    if (!formData.resumeLink.trim()) {
+      errors.resumeLink = 'Resume/CV link is required.';
+      valid = false;
+    }
+    setFormErrors(errors);
+    return valid;
+  };
+
   const handleSubmitApplication = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus(null);
+    if (!validateForm()) {
+      return;
+    }
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/careers/apply', {
+      const response = await fetch(`https://lets-taxify.onrender.com/api/careers/apply`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -364,6 +423,9 @@ const Careers: React.FC = () => {
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 cursor-text"
                     placeholder="John Doe"
                   />
+                  {formErrors.name && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -380,6 +442,9 @@ const Careers: React.FC = () => {
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 cursor-text"
                     placeholder="john@example.com"
                   />
+                  {formErrors.email && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -395,7 +460,11 @@ const Careers: React.FC = () => {
                     onChange={handleInputChange}
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 cursor-text"
                     placeholder="+91 9876543210"
+                    maxLength={10}
                   />
+                  {formErrors.mobile && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.mobile}</p>
+                  )}
                 </div>
 
                 <div>
@@ -412,6 +481,9 @@ const Careers: React.FC = () => {
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 cursor-text"
                     placeholder="Your College/University"
                   />
+                  {formErrors.college && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.college}</p>
+                  )}
                 </div>
 
                 <div>
@@ -427,13 +499,16 @@ const Careers: React.FC = () => {
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white cursor-pointer"
                   >
                     <option value="" disabled>Select your year</option>
-                    <option value="1st Year">1st Year</option>
-                    <option value="2nd Year">2nd Year</option>
-                    <option value="3rd Year">3rd Year</option>
-                    <option value="4th Year">4th Year</option>
-                    <option value="5th Year">5th Year</option>
-                    <option value="Graduated">Graduated</option>
+                    <option value="Bachelors - 1st Year">Bachelors - 1st Year</option>
+                    <option value="Bachelors - 2nd Year">Bachelors - 2nd Year</option>
+                    <option value="Bachelors - 3rd Year">Bachelors - 3rd Year</option>
+                    <option value="Bachelors - 4th Year">Bachelors - 4th Year</option>
+                    <option value="Under Graduate">Under Graduate</option>
+                    <option value="Graduate">Graduate</option>
                   </select>
+                  {formErrors.currentYear && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.currentYear}</p>
+                  )}
                 </div>
 
                 <div>
@@ -450,6 +525,9 @@ const Careers: React.FC = () => {
                     onChange={handleInputChange}
                     className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg shadow-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400"
                   />
+                  {formErrors.resumeLink && (
+                    <p className="mt-1 text-xs text-red-400">{formErrors.resumeLink}</p>
+                  )}
                   <p className="mt-2 text-xs text-gray-400">Make sure the link is accessible to anyone with the link</p>
                 </div>
               </div>
