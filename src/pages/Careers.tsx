@@ -38,6 +38,30 @@ const jobOpenings: JobOpening[] = [
       'Strong problem-solving skills and eagerness to learn'
     ],
     skills: ['JavaScript', 'React', 'Node.js', 'Git', 'REST APIs', 'MongoDB']
+  },
+  {
+    id: 2,
+    title: 'UI/UX Intern',
+    type: 'Internship',
+    location: 'Remote',
+    duration: '2 months',
+    description: 'We are seeking a creative UI/UX Intern to help design intuitive and engaging user experiences for our digital products.',
+    responsibilities: [
+      'Create user-centered designs by understanding business requirements, user feedback, and research insights',
+      'Design user interface elements like menus, tabs, and widgets',
+      'Create wireframes, prototypes, and mockups to effectively communicate design ideas',
+      'Collaborate with developers to ensure designs are implemented correctly',
+      'Conduct user research and usability testing to gather feedback',
+      'Create style guides and design systems for consistency'
+    ],
+    requirements: [
+      'Basic understanding of design principles and user experience concepts',
+      'Familiarity with design tools like Figma, Adobe XD, or Sketch',
+      'Strong visual design skills and attention to detail',
+      'Good communication and collaboration skills',
+      'Portfolio showcasing design projects (preferred)'
+    ],
+    skills: ['Figma', 'Adobe XD', 'Sketch', 'Prototyping', 'User Research', 'Wireframing'],
   }
 ];
 
