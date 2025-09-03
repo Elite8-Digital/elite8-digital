@@ -13,10 +13,11 @@ interface JobOpening {
   responsibilities: string[];
   requirements: string[];
   skills: string[];
+  salary: string[];
 }
 
 const jobOpenings: JobOpening[] = [
-  {
+    {
     id: 1,
     title: 'SDE Intern',
     type: 'Internship',
@@ -37,7 +38,10 @@ const jobOpenings: JobOpening[] = [
       'Basic understanding of web technologies (HTML, CSS, JavaScript)',
       'Strong problem-solving skills and eagerness to learn'
     ],
-    skills: ['JavaScript', 'React', 'Node.js', 'Git', 'REST APIs', 'MongoDB']
+    skills: ['JavaScript', 'React', 'Node.js', 'Git', 'REST APIs', 'MongoDB'],
+    salary: [
+    'Stipend: ₹10,000 – ₹20,000 per month (based on skills and performance).'
+  ]
   },
   {
     id: 2,
@@ -61,8 +65,48 @@ requirements: [
   'Good understanding of social media algorithms and audience engagement.',
   'Prior experience in content creation is a plus.'
 ],
-skills: ['Instagram Reels', 'Content Creation', 'Canva', 'CapCut', 'Social Media Algorithms', 'Branding']
-  }
+skills: ['Instagram Reels', 'Content Creation', 'Canva', 'CapCut', 'Social Media Algorithms', 'Branding'],
+salary: [
+    'Stipend: ₹5,000 – ₹20,000 per month (based on skills and performance).'
+  ]
+  },
+  {
+    id: 3,
+    title: 'React Native Intern',
+    type: 'Internship',
+    location: 'Remote',
+    duration: '2 months',
+    description: 'We are seeking a React Native Intern to help build and maintain scalable, high-quality mobile applications for both Android and iOS platforms.',
+  responsibilities: [
+    'Develop and maintain mobile applications using React Native for Android and iOS.',
+    'Write clean, efficient, and reusable code.',
+    'Ensure apps are scalable and responsive across different screen sizes and mobile devices.',
+    'Collaborate with the design and backend teams to integrate APIs and new features.',
+    'Debug, test, and optimize app performance.',
+    'Stay updated with the latest trends and best practices in mobile development.'
+  ],
+  requirements: [
+    'Basic knowledge of React Native, JavaScript/TypeScript.',
+    'Understanding of mobile UI/UX principles.',
+    'Familiarity with REST APIs and third-party libraries.',
+    'Problem-solving mindset and eagerness to learn.',
+    'Good communication and teamwork skills.',
+    '(Bonus) Exposure to Git/GitHub, Firebase, or mobile app deployment.'
+  ],
+  skills: [
+    'React Native',
+    'JavaScript',
+    'TypeScript',
+    'REST APIs',
+    'Mobile UI/UX',
+    'Git/GitHub',
+    'Firebase',
+    'App Deployment'
+  ],
+  salary: [
+    'Stipend: ₹15,000 – ₹30,000 per month (based on skills and performance).'
+  ]
+},
 ];
 
 const Careers: React.FC = () => {
@@ -371,6 +415,19 @@ const Careers: React.FC = () => {
                             className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-800 text-gray-200 border border-gray-700 hover:bg-gray-700 transition-colors"
                           >
                             {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-white mb-3">Stipend</h3>
+                        <div className="flex flex-wrap gap-3">
+                        {selectedJob.salary.map((salary, index) => (
+                          <span
+                            key={index}
+                            className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-800 text-gray-200 border border-gray-700 hover:bg-gray-700 transition-colors"
+                          >
+                            {salary}
                           </span>
                         ))}
                       </div>
