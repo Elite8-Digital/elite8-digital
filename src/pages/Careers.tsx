@@ -41,27 +41,27 @@ const jobOpenings: JobOpening[] = [
   },
   {
     id: 2,
-    title: 'UI/UX Intern',
+    title: 'Social Media Marketing Intern',
     type: 'Internship',
     location: 'Remote',
     duration: '2 months',
-    description: 'We are seeking a creative UI/UX Intern to help design intuitive and engaging user experiences for our digital products.',
+    description: 'We are seeking a creative Social Media Marketing Intern who can take charge of our social media presence and create engaging content that connects with our audience.',
     responsibilities: [
-      'Create user-centered designs by understanding business requirements, user feedback, and research insights',
-      'Design user interface elements like menus, tabs, and widgets',
-      'Create wireframes, prototypes, and mockups to effectively communicate design ideas',
-      'Collaborate with developers to ensure designs are implemented correctly',
-      'Conduct user research and usability testing to gather feedback',
-      'Create style guides and design systems for consistency'
-    ],
-    requirements: [
-      'Basic understanding of design principles and user experience concepts',
-      'Familiarity with design tools like Figma, Adobe XD, or Sketch',
-      'Strong visual design skills and attention to detail',
-      'Good communication and collaboration skills',
-      'Portfolio showcasing design projects (preferred)'
-    ],
-    skills: ['Figma', 'Adobe XD', 'Sketch', 'Prototyping', 'User Research', 'Wireframing'],
+  'Ideate, plan, and create engaging Instagram Reels, posts, and stories.',
+  'Manage posting across Instagram, Facebook, and other platforms.',
+  'Bring fresh and creative ideas for social media campaigns and trends.',
+  'Stay updated with the latest trends, sounds, and formats in social media.',
+  'Ensure consistency in branding, tone, and design.',
+  'Track engagement and suggest improvements for growth.'
+],
+requirements: [
+  'Strong knowledge of Instagram Reels & trending content.',
+  'Ability to shoot, edit, and design creative content (basic editing tools, Canva, CapCut, or similar).',
+  'Proactive with new ideas for posts & campaigns.',
+  'Good understanding of social media algorithms and audience engagement.',
+  'Prior experience in content creation is a plus.'
+],
+skills: ['Instagram Reels', 'Content Creation', 'Canva', 'CapCut', 'Social Media Algorithms', 'Branding']
   }
 ];
 
