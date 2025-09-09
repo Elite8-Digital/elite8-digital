@@ -227,7 +227,7 @@ const Careers: React.FC = () => {
         },
         body: JSON.stringify({
           ...formData,
-          position: selectedJob?.title || 'SDE Intern'
+          position: selectedJob?.title
         }),
       });
 
