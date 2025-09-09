@@ -17,34 +17,34 @@ interface JobOpening {
 }
 
 const jobOpenings: JobOpening[] = [
-    {
-    id: 1,
-    title: 'SDE Intern',
-    type: 'Internship',
-    location: 'Remote',
-    duration: '2 months',
-    description: 'Join our team as an SDE Intern and work on cutting-edge projects while gaining hands-on experience in software development at a fast-growing startup.',
-    responsibilities: [
-      'Develop and maintain web applications using modern technologies',
-      'Collaborate with cross-functional teams to define, design, and ship new features',
-      'Write clean, maintainable, and efficient code',
-      'Participate in code reviews and team discussions',
-      'Troubleshoot, debug and upgrade existing systems'
-    ],
-    requirements: [
-      'Currently pursuing a degree in Computer Science or related field',
-      'Basic understanding of programming concepts and data structures',
-      'Familiarity with at least one programming language (JavaScript, Python, Java, etc.)',
-      'Basic understanding of web technologies (HTML, CSS, JavaScript)',
-      'Strong problem-solving skills and eagerness to learn'
-    ],
-    skills: ['JavaScript', 'React', 'Node.js', 'Git', 'REST APIs', 'MongoDB'],
-    salary: [
-    'Stipend: ₹10,000 – ₹20,000 per month (based on skills and performance).'
-  ]
+    // {
+    // id: 1,
+    // title: 'SDE Intern',
+    // type: 'Internship',
+    // location: 'Remote',
+    // duration: '2 months',
+    // description: 'Join our team as an SDE Intern and work on cutting-edge projects while gaining hands-on experience in software development at a fast-growing startup.',
+    // responsibilities: [
+    //   'Develop and maintain web applications using modern technologies',
+    //   'Collaborate with cross-functional teams to define, design, and ship new features',
+    //   'Write clean, maintainable, and efficient code',
+    //   'Participate in code reviews and team discussions',
+    //   'Troubleshoot, debug and upgrade existing systems'
+    // ],
+  //   requirements: [
+  //     'Currently pursuing a degree in Computer Science or related field',
+  //     'Basic understanding of programming concepts and data structures',
+  //     'Familiarity with at least one programming language (JavaScript, Python, Java, etc.)',
+  //     'Basic understanding of web technologies (HTML, CSS, JavaScript)',
+  //     'Strong problem-solving skills and eagerness to learn'
+  //   ],
+  //   skills: ['JavaScript', 'React', 'Node.js', 'Git', 'REST APIs', 'MongoDB'],
+  //   salary: [
+  //   'Stipend: ₹10,000 – ₹20,000 per month (based on skills and performance).'
+  // ]
   },
   {
-    id: 2,
+    id: 1,
     title: 'Social Media Marketing Intern',
     type: 'Internship',
     location: 'Remote',
@@ -71,7 +71,7 @@ salary: [
   ]
   },
   {
-    id: 3,
+    id: 2,
     title: 'React Native Intern',
     type: 'Internship',
     location: 'Remote',
