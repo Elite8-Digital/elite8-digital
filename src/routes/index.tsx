@@ -4,8 +4,8 @@ import Work from '../pages/Work';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Careers from '../pages/Careers';
-import PP from '@/pages/PP';
-import TC from '@/pages/TC';
+import PP from '../pages/PP';
+import TC from '../pages/TC';
 
 const AppRoutes = () => {
 	return (
@@ -17,7 +17,6 @@ const AppRoutes = () => {
 			<Route path="/contact" element={<Contact />} />
 			<Route path="/privacy-policy" element={<PP />} />
 			<Route path="/terms-condition" element={<TC />} />
-
 		</Routes>
 	);
 };

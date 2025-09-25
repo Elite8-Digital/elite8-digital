@@ -42,7 +42,7 @@ const jobOpenings: JobOpening[] = [
   //   salary: [
   //   'Stipend: ₹10,000 – ₹20,000 per month (based on skills and performance).'
   // ]
-  },
+  // },
   {
     id: 1,
     title: 'Social Media Marketing Intern',
