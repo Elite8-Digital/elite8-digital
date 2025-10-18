@@ -172,50 +172,72 @@ const About = () => {
 					</div>
 				</div>
 			</section> */}
+						{/* 🌑 OUR VALUES SECTION */}
+<section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0012] to-[#050505] text-white">
+  {/* Subtle purple glow overlay */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,40,200,0.12)_0%,rgba(0,0,0,0)_70%)] opacity-40 pointer-events-none"></div>
 
-			<section className="py-24 bg-secondary">
-				<div className="container px-4 mx-auto">
-					<div 
-						className="reveal mb-16 text-center" 
-						ref={(el) => (revealRefs.current[11] = el)}
-					>
-						<h2 className="text-3xl md:text-5xl font-bold mb-4">Our Values</h2>
-						<p className="text-xl text-gray-400 max-w-3xl mx-auto">
-							The principles that guide our work and define our culture.
-						</p>
-					</div>
+  <div className="container relative z-10 px-6 mx-auto">
+    {/* Heading */}
+    <div
+      className="reveal mb-16 text-center"
+      ref={(el) => (revealRefs.current[11] = el)}
+    >
+      <h2 className="text-5xl md:text-6xl font-bold mb-4">
+        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Values</span>
+      </h2>
+      <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+        The principles that guide our work and define our culture.
+      </p>
+    </div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-						{values.map((value, index) => (
-							<div 
-								key={value.title} 
-								className="reveal p-8 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm" 
-								ref={(el) => (revealRefs.current[index + 12] = el)}
-							>
-								<h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-								<p className="text-gray-400">{value.description}</p>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
+    {/* Values Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {values.map((value, index) => (
+        <div
+          key={value.title}
+          ref={(el) => (revealRefs.current[index + 12] = el)}
+          className="group relative p-8 rounded-2xl bg-[rgba(15,15,20,0.6)] border border-white/10 backdrop-blur-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_25px_rgba(120,40,200,0.25)]"
+        >
+          {/* Soft hover highlight */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3b0a45]/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-			<section className="py-24">
-				<div className="container px-4 mx-auto">
-					<div 
-						className="reveal max-w-4xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-r from-secondary to-secondary/50 border border-white/10" 
-						ref={(el) => (revealRefs.current[16] = el)}
-					>
-						<h2 className="text-3xl md:text-5xl font-bold mb-6">Join Our Team</h2>
-						<p className="text-xl text-gray-300 mb-8">
-							We're always looking for talented individuals to join our team. If you're passionate about creating exceptional digital experiences, we'd love to hear from you.
-						</p>
-						<Link to="/contact" className="btn btn-primary btn-lg">
-							Get in Touch
-						</Link>
-					</div>
-				</div>
-			</section>
+          <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#8b5cf6]">
+            {value.title}
+          </h3>
+          <p className="text-gray-400 text-base">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* 🖤 JOIN OUR TEAM SECTION */}
+<section className="relative py-24 overflow-hidden bg-gradient-to-t from-[#050505] via-[#0a0012] to-[#050505] text-white">
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,40,200,0.12)_0%,rgba(0,0,0,0)_70%)] opacity-40 pointer-events-none"></div>
+
+  <div className="container relative z-10 px-6 mx-auto">
+    <div
+      className="reveal max-w-4xl mx-auto text-center p-12 rounded-2xl bg-[rgba(15,15,20,0.7)] border border-white/10 backdrop-blur-lg shadow-[0_0_25px_rgba(120,40,200,0.15)]"
+      ref={(el) => (revealRefs.current[16] = el)}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        Join Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Team</span>
+      </h2>
+      <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+        We're always looking for talented individuals to join our team.  
+        If you're passionate about creating exceptional digital experiences, we'd love to hear from you.
+      </p>
+      <Link
+        to="/contact"
+        className="inline-block px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.25)]"
+      >
+        Get in Touch
+      </Link>
+    </div>
+  </div>
+</section>
+
 		</MainLayout>
 	);
 };
@@ -281,3 +303,4 @@ const values = [
 ];
 
 export default About;
+
