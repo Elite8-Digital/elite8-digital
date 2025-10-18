@@ -113,9 +113,10 @@ const About = () => {
       className="reveal text-center mb-20"
       ref={(el) => (revealRefs.current[2] = el)}
     >
-      <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-white">
-        By the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Numbers</span>
-      </h2>
+     <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-white">
+  By the Numbers
+</h2>
+
       <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
         Our impact in numbers that tell the story of our success and growth.
       </p>
@@ -199,9 +200,10 @@ const About = () => {
       className="reveal mb-16 text-center"
       ref={(el) => (revealRefs.current[11] = el)}
     >
-      <h2 className="text-5xl md:text-6xl font-bold mb-4">
-        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Values</span>
-      </h2>
+     <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white">
+  Our Values
+</h2>
+
       <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
         The principles that guide our work and define our culture.
       </p>
@@ -237,9 +239,10 @@ const About = () => {
       className="reveal max-w-4xl mx-auto text-center p-12 rounded-2xl bg-[rgba(15,15,20,0.7)] border border-white/10 backdrop-blur-lg shadow-[0_0_25px_rgba(120,40,200,0.15)]"
       ref={(el) => (revealRefs.current[16] = el)}
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        Join Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Team</span>
-      </h2>
+     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+  Join Our Team
+</h2>
+
       <p className="text-xl text-gray-300 mb-10 leading-relaxed">
         We're always looking for talented individuals to join our team.  
         If you're passionate about creating exceptional digital experiences, we'd love to hear from you.
@@ -319,5 +322,6 @@ const values = [
 ];
 
 export default About;
+
 
 
