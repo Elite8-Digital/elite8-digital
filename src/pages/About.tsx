@@ -103,33 +103,49 @@ const About = () => {
 				</div>
 			</section>
 
-			<section className="py-24 bg-secondary">
-				<div className="container px-4 mx-auto">
-					<div 
-						className="reveal mb-16 text-center" 
-						ref={(el) => (revealRefs.current[2] = el)}
-					>
-						<h2 className="text-3xl md:text-5xl font-bold mb-4">By the Numbers</h2>
-						<p className="text-xl text-gray-400 max-w-3xl mx-auto">
-							Our impact in numbers that tell the story of our success and growth.
-						</p>
-					</div>
+			<section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0012] to-[#050505] text-white">
+  {/* Subtle purple haze overlay */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,40,200,0.12)_0%,rgba(0,0,0,0)_70%)] opacity-50 pointer-events-none"></div>
 
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-						{stats.map((stat, index) => (
-							<div 
-								key={stat.label} 
-								className="reveal p-8 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm text-center" 
-								ref={(el) => (revealRefs.current[index + 3] = el)}
-							>
-								<div className="text-4xl md:text-6xl font-bold mb-2 text-primary">{stat.value}</div>
-								<h3 className="text-xl font-medium mb-3">{stat.label}</h3>
-								<p className="text-gray-400">{stat.description}</p>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
+  <div className="container relative z-10 px-6 mx-auto">
+    {/* Title */}
+    <div
+      className="reveal text-center mb-20"
+      ref={(el) => (revealRefs.current[2] = el)}
+    >
+      <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight text-white">
+        By the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#b794f4] to-[#a855f7]">Numbers</span>
+      </h2>
+      <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+        Our impact in numbers that tell the story of our success and growth.
+      </p>
+    </div>
+
+    {/* Stats Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <div
+          key={stat.label}
+          ref={(el) => (revealRefs.current[index + 3] = el)}
+          className="group relative p-10 rounded-2xl bg-[rgba(15,15,20,0.6)] border border-white/10 backdrop-blur-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_25px_rgba(120,40,200,0.25)] text-center"
+        >
+          {/* Subtle hover light gradient */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3b0a45]/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+          <div className="text-5xl md:text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#8b5cf6]">
+            {stat.value}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-white">
+            {stat.label}
+          </h3>
+          <p className="text-gray-400 text-sm md:text-base">
+            {stat.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
 			{/* Meet Our Team section */}
 
@@ -303,4 +319,5 @@ const values = [
 ];
 
 export default About;
+
 
