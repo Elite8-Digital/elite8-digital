@@ -6,6 +6,7 @@ import Contact from '../pages/Contact';
 import Careers from '../pages/Careers';
 import PP from '../pages/PP';
 import TC from '../pages/TC';
+import Portfolio from '@/pages/Portfolio';
 
 const AppRoutes = () => {
 	return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
 			<Route path="/contact" element={<Contact />} />
 			<Route path="/privacy-policy" element={<PP />} />
 			<Route path="/terms-condition" element={<TC />} />
+			<Route path="/portfolio" element={<Portfolio />} />
 		</Routes>
 	);
 };

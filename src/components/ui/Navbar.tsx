@@ -30,12 +30,13 @@ export default function Navbar() {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Work', path: '/work' },
-    { name: 'About', path: '/about' },
-    { name: 'Careers', path: '/careers' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  { name: 'Home', path: '/' },
+  { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Careers', path: '/careers' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
+];
+
 
   return (
     <nav
@@ -52,8 +53,13 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center"
-          >
-            <img src={logo} alt="Elite8 Digital Logo" className="h-14" />
+          > 
+           <img
+  src={logo}
+  alt="Elite8 Digital Logo"
+  className="h-16 md:h-20 lg:h-24 transition-all duration-300"
+/>
+
           </motion.div>
         </Link>
 

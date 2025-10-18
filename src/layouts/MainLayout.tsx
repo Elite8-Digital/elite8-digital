@@ -1,8 +1,9 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedCursor from '../components/ui/AnimatedCursor';
 import logo from '../assets/images/elite8digital-nav.png';
+import GooeyNav from '@/components/3d/GooeyNav';
 
 type Props = {
 	children: React.ReactNode;
@@ -10,6 +11,7 @@ type Props = {
 
 const MainLayout = ({ children }: Props) => {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	
 	useEffect(() => {
@@ -56,7 +58,7 @@ const MainLayout = ({ children }: Props) => {
 								whileHover={{ scale: 1.05 }}
 								transition={{ type: 'spring', stiffness: 500 }}
 							>
-								<img src={logo} alt="Elite8 Digital Logo" className="h-10" />
+								<img src={logo} alt="Elite8 Digital Logo" className="h-14" />
 							</motion.span>
 						</div>
 						<motion.div 
@@ -66,22 +68,40 @@ const MainLayout = ({ children }: Props) => {
 						/>
 					</Link>
 					
-					<nav className="hidden md:flex space-x-8">
-						{['Home', 'About', 'Contact', 'Careers'].map((item, index) => (
-							<motion.div 
-								key={item} 
-								initial={{ opacity: 0, y: -20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: index * 0.1 + 0.2 }}
-							>
-								<NavLink 
-									to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-									label={item} 
-									currentPath={location.pathname} 
-								/>
-							</motion.div>
-						))}
-					</nav>
+					<div className="hidden md:flex items-center">
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+  >
+    <GooeyNav
+      key={location.pathname} // re-renders on route change
+      items={[
+        { label: "Home", href: "/" },
+        { label: "Portfolio", href: "/portfolio" },
+        { label: "Careers", href: "/careers" },
+        { label: "About", href: "/about" },
+        { label: "Contact Us", href: "/contact" },
+      ]}
+      initialActiveIndex={
+        ["/", "/home"].includes(location.pathname)
+          ? 0
+          : location.pathname.startsWith("/portfolio")
+          ? 1
+          : location.pathname.startsWith("/careers")
+          ? 2
+          : location.pathname.startsWith("/about")
+          ? 3
+          : location.pathname.startsWith("/contact")
+          ? 4
+          : 0
+      }
+      onNavigate={(href) => navigate(href)} // enables React Router navigation
+    />
+  </motion.div>
+</div>
+
+
 					
 					<motion.div 
 						className="md:hidden"
@@ -145,24 +165,30 @@ const MainLayout = ({ children }: Props) => {
 									</button>
 								</div>
 								
-								<nav className="flex flex-col space-y-6">
-									{['Home', 'About', 'Contact', 'Careers'].map((item, index) => (
-										<motion.div
-											key={item}
-											initial={{ opacity: 0, x: -20 }}
-											animate={{ opacity: 1, x: 0 }}
-											transition={{ delay: index * 0.1 }}
-										>
-											<Link 
-												to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-												className={`text-2xl font-bold ${location.pathname === (item === 'Home' ? '/' : `/${item.toLowerCase()}`) ? 'text-primary' : 'text-white hover:text-primary'} transition-colors`}
-												onClick={() => setMobileMenuOpen(false)}
-											>
-												{item}
-											</Link>
-										</motion.div>
-									))}
-								</nav>
+							<nav className="flex flex-col space-y-6">
+  {['Home', 'Portfolio', 'About', 'Careers', 'Contact Us'].map((item, index) => (
+    <motion.div
+      key={item}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: index * 0.1 }}
+    >
+      <Link
+        to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+        className={`text-2xl font-bold ${
+          location.pathname ===
+          (item === 'Home' ? '/' : `/${item.toLowerCase()}`)
+            ? 'text-primary'
+            : 'text-white hover:text-primary'
+        } transition-colors`}
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        {item}
+      </Link>
+    </motion.div>
+  ))}
+</nav>
+
 								
 								<div className="pt-6 mt-6 border-t border-white/10">
 									<p className="text-gray-400 mb-4">Get in touch</p>
@@ -256,6 +282,28 @@ const MainLayout = ({ children }: Props) => {
 										</motion.a>
 									))
 								}
+
+								{
+  ['facebook'].map((social) => (
+    <motion.a
+      key={social}
+      href={
+        social === 'facebook'
+          ? 'https://www.facebook.com/profile.php?id=61578168604952'
+          : '#'
+      }
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-purple-400 transition-colors"
+      whileHover={{ y: -5, scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <i className={`ri-${social}-fill text-lg`}></i>
+    </motion.a>
+  ))
+}
+
+
 							</div>
 						</motion.div>
 						
@@ -264,7 +312,8 @@ const MainLayout = ({ children }: Props) => {
 								{ name: 'Home', path: '/' },
 								// { name: 'Work', path: '/work' },
 								{ name: 'About', path: '/about' },
-								{ name: 'Contact', path: '/contact' },
+								{ name: 'Portfolio', path: '/portfolio' },
+								{ name: 'Contact Us', path: '/contact' },
 								{ name: 'Careers', path: '/careers' }
 							]},
 							{ title: 'Services', links: [

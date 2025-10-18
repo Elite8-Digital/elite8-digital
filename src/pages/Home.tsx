@@ -11,6 +11,11 @@ import GlowingText from '../components/3d/GlowingText';
 import FloatingElements from '../components/ui/FloatingElements';
 import GradientButton from '../components/ui/GradientButton';
 import TextReveal from '../components/ui/TextReveal';
+import { useRef } from "react";
+
+
+
+
 
 // Import images
 import heroBg from '../assets/images/hero-bg.svg';
@@ -23,6 +28,11 @@ import project4 from '../assets/images/project-4.svg';
 import avatar1 from '../assets/images/vikas-testimonials.jpg';
 import avatar2 from '../assets/images/letstaxify-testimonials.jpg';
 import avatar3 from '../assets/images/sunita-testimonials.png';
+import avatar4 from '../assets/images/unnamed.png';
+import avatar5 from '../assets/images/school.jpg';
+import avatar6 from '../assets/images/ib.png';
+import avatar7 from '../assets/images/person.png';
+import team1 from '../assets/images/team.png';
 
 import "../styles/global.css";
 
@@ -32,31 +42,72 @@ const Home = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const services = [
-    {
-      title: 'Custom Website Design, Development & Maintenance',
-      description: 'We design tailored websites with modern aesthetics, solid development, and continuous maintenance. Our SEO-friendly approach helps boost your search engine rankings and attract more customers.',
-      icon: 'ri-code-s-slash-line',
-      color: 'from-purple-500 to-blue-500'
-    },
-    {
-      title: 'Software & App Development',
-      description: 'Custom software solutions and applications designed to streamline your business processes and enhance user experience.',
-      icon: 'ri-apps-2-line',
-      color: 'from-blue-500 to-teal-500'
-    },
-    {
-      title: 'Mobile-Friendly Websites & Apps',
-      description: 'Responsive designs that work flawlessly across all devices, ensuring your customers have a seamless experience wherever they are.',
-      icon: 'ri-smartphone-line',
-      color: 'from-teal-500 to-green-500'
-    },
-    {
-      title: 'E-commerce Solutions',
-      description: 'Complete online store development with secure payment processing, inventory management, and user-friendly shopping experiences.',
-      icon: 'ri-shopping-cart-2-line',
-      color: 'from-green-500 to-yellow-500'
-    }
-  ];
+ {
+  title: (
+    <span className="block text-white font-bold text-2xl leading-snug">
+      Custom Website Design Development & Maintenance
+    </span>
+  ),
+  description:
+    'We design tailored websites with modern aesthetics, solid development, and continuous maintenance to ensure long-term performance and reliability.',
+  icon: 'ri-code-s-slash-line',
+  color: 'from-purple-500 to-blue-500'
+},
+
+
+ {
+    title: 'SEO Optimization',
+    description:
+      'We enhance your online visibility through advanced SEO strategies, keyword targeting, and site performance optimization to help your business rank higher and attract more customers.',
+    icon: 'ri-bar-chart-2-line',
+    color: 'from-indigo-500 to-purple-500'
+  },
+  {
+    title: 'E-commerce Solutions',
+    description:
+      'Complete online store development with secure payment integration, advanced inventory management, and a smooth shopping experience that drives conversions.',
+    icon: 'ri-shopping-cart-2-line',
+    color: 'from-green-500 to-yellow-500'
+  },
+  {
+    title: 'Mobile-Friendly Websites & Apps',
+    description:
+      'Responsive and adaptive websites that deliver seamless user experiences across all devices — from desktop to mobile.',
+    icon: 'ri-smartphone-line',
+    color: 'from-teal-500 to-green-500'
+  },
+  {
+    title: 'Android & iOS App Development',
+    description:
+      'We build powerful, scalable, and intuitive mobile apps for Android and iOS using modern frameworks and robust backend integrations.',
+    icon: 'ri-android-line',
+    color: 'from-blue-500 to-teal-500'
+  },
+  {
+    title: 'Custom Software Development',
+    description:
+      'Tailored software solutions to optimize workflows, automate processes, and boost your business efficiency.',
+    icon: 'ri-computer-line',
+    color: 'from-indigo-500 to-purple-500'
+  },
+  {
+    title: 'Social Media Handling',
+    description:
+      'We manage and grow your brand’s social media presence with creative content, audience engagement, and targeted strategy.',
+    icon: 'ri-share-forward-line',
+    color: 'from-pink-500 to-red-500'
+  },
+  {
+    title: 'Digital Marketing',
+    description:
+      'Comprehensive digital marketing strategies — from SEO and PPC to content marketing — to help you reach the right audience and increase conversions.',
+    icon: 'ri-megaphone-line',
+    color: 'from-orange-500 to-yellow-500'
+  }
+];
+
+
+
 
   // Featured projects data
   const projects = [
@@ -92,25 +143,61 @@ const Home = () => {
 
   // Testimonials data
   const testimonials = [
-    {
-      name: 'Dr. Vikas Bhalekar',
-      role: 'MBBS, MD Radiation oncology',
-      content: 'As a medical professional, I wanted a website that reflected both trust and quality — and Elite8 Digital absolutely delivered. Their team understood my vision from day one and built a platform that’s clean, fast, and easy for my patients to navigate. Since launching the new site, appointment inquiries have nearly doubled. Their attention to detail and design truly sets them apart.',
-      image: avatar1
-    },
-    {
-      name: 'CA Aastha Bansal',
-      role: 'Founder, LetsTaxify',
-      content: 'I’m extremely pleased with the outstanding work delivered by Elite 8 Digital Private Limited on our website www.letstaxify.com. The team not only completed the project well before the committed deadline but also delivered a design that was modern, user-friendly, and exceeded expectations. Their professionalism, attention to detail, and creative approach made the entire experience seamless. I highly recommend them to anyone looking for top-notch web development services.',
-      image: avatar2
-    },
-    {
-      name: 'Tarunesh Bhargava',
-      role: 'Owner, Sunita Infrastructure',
-      content: 'We partnered with Elite8 Digital to revamp our construction company’s website, and the results were outstanding. They created a modern, responsive platform that perfectly showcases our projects and services. The design reflects our brand’s professionalism, and we’ve seen a clear boost in client inquiries since the launch. Their team was proactive, creative, and always one step ahead throughout the process.',
-      image: avatar3
-    }
-  ];
+  {
+    name: 'Dr. Vikas Bhalekar',
+    role: 'MBBS, MD Radiation Oncology',
+    content:
+      'As a medical professional, I wanted a website that reflected both trust and quality — and Elite8 Digital absolutely delivered. Their team understood my vision from day one and built a platform that’s clean, fast, and easy for my patients to navigate. Since launching the new site, appointment inquiries have nearly doubled. Their attention to detail and design truly sets them apart.',
+    image: avatar1,
+    website: 'https://drvikasbhalekar.in/'
+  },
+  {
+    name: 'CA Aastha Bansal',
+    role: 'Founder, LetsTaxify',
+    content:
+      'I’m extremely pleased with the outstanding work delivered by Elite 8 Digital Private Limited on our website www.letstaxify.com. The team not only completed the project well before the committed deadline but also delivered a design that was modern, user-friendly, and exceeded expectations. Their professionalism, attention to detail, and creative approach made the entire experience seamless. I highly recommend them to anyone looking for top-notch web development services.',
+    image: avatar2,
+    website: 'https://letstaxify.com/'
+  },
+  {
+    name: 'Tarunesh Bhargava',
+    role: 'Owner, Sunita Infrastructure',
+    content:
+      'We partnered with Elite8 Digital to revamp our construction company’s website, and the results were outstanding. They created a modern, responsive platform that perfectly showcases our projects and services. The design reflects our brand’s professionalism, and we’ve seen a clear boost in client inquiries since the launch. Their team was proactive, creative, and always one step ahead throughout the process.',
+    image: avatar3,
+    website: null // add link later if available
+  },
+  {
+    name: 'Umakant',
+    role: 'Owner, Bharat O’Nesty Foods Pvt. Ltd.',
+    content:
+      'Great work by the Elite8 Digital Team! We truly appreciate your creativity, professionalism, and dedication in designing the website for Bharat O’Nesty Foods Pvt. Ltd. The site looks elegant, user-friendly, and perfectly represents our brand. Excellent teamwork and timely delivery — keep up the great work! — Team Bharat O’Nesty Foods Pvt. Ltd.',
+    image: avatar4,
+    website: 'https://bharatonesty.com/'
+  },
+  {
+    name: 'IB Technologies',
+    role: 'Technology Solutions Provider',
+    content:
+      'Elite8 Digital has done an outstanding job designing our company website. The layout is beautiful, easy to navigate, and perfectly showcases our services, team, and technological achievements. The admin panel they built makes updating content effortless. Our clients love the new site!',
+    image: avatar6,
+    website: 'https://ib-tech.netlify.app/'
+  },
+  {
+  name: 'Team Bharat O’Nesty',
+  role: 'Bharat O’Nesty Foods Pvt. Ltd.',
+  content:
+    'We’re extremely happy with the website created by Elite8 Digital! The design beautifully captures our brand’s essence — elegant, user-friendly, and impactful. The team’s creativity, attention to detail, and on-time delivery made the whole process seamless. Highly recommended!',
+  image: team1,
+  website: 'https://bharatonesty.com/'
+}
+
+ 
+  
+];
+
+const duplicatedTestimonials = [...testimonials, ...testimonials];
+
 
   // Process data
   const process = [
@@ -146,6 +233,137 @@ const Home = () => {
 
   return (
     <MainLayout>
+         <style>{`
+    .services-section [class*="AnimatedCard"],
+    .services-section .animated-card,
+    .services-section .card,
+    .services-section .rounded-xl {
+      background: linear-gradient(145deg, #0a0f12, #10161b) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+      transition: all 0.3s ease;
+    }
+
+    .services-section [class*="AnimatedCard"]:hover,
+    .services-section .animated-card:hover,
+    .services-section .card:hover,
+    .services-section .rounded-xl:hover {
+      background: linear-gradient(145deg, #0d1418, #1a2428) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .services-section [class*="AnimatedCard"] h3,
+    .services-section [class*="AnimatedCard"] p,
+    .services-section [class*="AnimatedCard"] span,
+    .services-section [class*="AnimatedCard"] i {
+      color: #ffffff !important;
+    }
+
+    .services-section [class*="AnimatedCard"] p {
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+      /* ✅ Keep OUR PROCESS section clean and minimal */
+        section.bg-secondary {
+      background: #1b1d20 !important; /* solid dark gray background */
+      color: #ffffff !important;
+      padding-top: 5rem !important;
+      padding-bottom: 5rem !important;
+    }
+
+    /* Step circles */
+    section.bg-secondary .w-14,
+    section.bg-secondary .w-16 {
+      background: #f8f8f8ff !important; /* dark gray circle */
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Step text */
+    section.bg-secondary h3 {
+      color: #fdebebff !important;
+    }
+
+    section.bg-secondary p {
+      color: rgba(245, 242, 242, 0.7) !important;
+    }
+
+    /* Remove card styling & hover from process items */
+    section.bg-secondary .flex.flex-col.items-center.text-center {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      transform: none !important;
+    }
+
+    /* Keep section compact */
+    section.bg-secondary .grid {
+      margin-bottom: 0 !important;
+    }
+
+    /* No extra spacing after section */
+    section.bg-secondary + section {
+      margin-top: 0 !important;
+    }
+
+  /* === CLIENT TESTIMONIALS section with violet gradient accent === */
+section.testimonials-section {
+  background: linear-gradient(
+    180deg,
+    #1b1d20 0%,
+    #211b2d 60%,
+    #1b1d20 100%
+  ) !important; /* dark gray base with violet depth */
+  color: #ffffff !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* soft glowing violet overlay for subtle motion */
+section.testimonials-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.05) 35%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: gentleGlow 8s ease-in-out infinite alternate;
+}
+
+/* fade glow animation */
+@keyframes gentleGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* ensure text readability */
+section.testimonials-section h2 {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+section.testimonials-section p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+
+
+  
+  `}</style>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroBg} alt="Hero Background" className="absolute inset-0 w-full h-full object-cover z-0" />
@@ -288,7 +506,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      <section className="py-20 relative">
+      <section className="py-20 relative services-section">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-black/5 z-0"></div>
           <div className="absolute inset-0 overflow-hidden">
@@ -318,52 +536,193 @@ const Home = () => {
             />
           </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <AnimatedCard className="p-5 sm:p-6 md:p-8 h-full" glowColor={service.color.includes('purple') ? 'rgba(139, 92, 246, 0.3)' : 
-                                                   service.color.includes('blue') ? 'rgba(59, 130, 246, 0.3)' : 
-                                                   service.color.includes('teal') ? 'rgba(20, 184, 166, 0.3)' : 
-                                                   service.color.includes('green') ? 'rgba(16, 185, 129, 0.3)' : 
-                                                   'rgba(249, 115, 22, 0.3)'}>
-                  <div className="mb-6">
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-3 md:mb-4 transform transition-transform hover:scale-110 duration-300`}>
-                      <i className={`${service.icon} text-2xl text-white`}></i>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">{service.title}</h3>
-                    <p className="text-sm sm:text-base text-white/70">{service.description}</p>
-                  </div>
-                  <GradientButton 
-                    href="#contact" 
-                    size="sm" 
-                    gradient={service.color.includes('purple') ? 'purple-blue' : 
-                              service.color.includes('blue') ? 'blue-teal' : 
-                              service.color.includes('teal') ? 'green-blue' : 
-                              service.color.includes('green') ? 'green-blue' : 
-                              'orange-red'}
-                    className="mt-4"
-                  >
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </GradientButton>
-                </AnimatedCard>
-              </motion.div>
-            ))}
+         {/* Custom layout: 4 cards on first row, 4 on second row */}
+<div className="flex flex-col items-center">
+  {/* First row — 4 cards */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full mb-8">
+    {services.slice(0, 4).map((service, index) => (
+     <motion.div
+  key={index}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: index * 0.1 }}
+  className="h-full"
+>
+  <AnimatedCard
+    className="flex flex-col justify-between h-full min-h-[500px] p-5 sm:p-6 md:p-8"
+    glowColor={
+      service.color.includes('purple')
+        ? 'rgba(139, 92, 246, 0.3)'
+        : service.color.includes('blue')
+        ? 'rgba(59, 130, 246, 0.3)'
+        : service.color.includes('teal')
+        ? 'rgba(20, 184, 166, 0.3)'
+        : service.color.includes('green')
+        ? 'rgba(16, 185, 129, 0.3)'
+        : 'rgba(249, 115, 22, 0.3)'
+    }
+  >
+    {/* Card Content */}
+    <div className="flex flex-col flex-1">
+      {/* Icon */}
+      <div
+        className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 transform transition-transform hover:scale-110 duration-300`}
+      >
+        <i className={`${service.icon} text-2xl text-white`}></i>
+      </div>
+
+      {/* Title */}
+      <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
+        {service.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm sm:text-base text-white/70 leading-relaxed flex-grow">
+        {service.description}
+      </p>
+
+      {/* Spacer to push button down */}
+      <div className="flex-grow"></div>
+    </div>
+
+    {/* Button always pinned to bottom */}
+    <div className="mt-auto pt-6">
+      <GradientButton
+        href="#contact"
+        size="sm"
+        className="flex items-center gap-1 justify-center"
+        gradient={
+          service.color.includes('purple')
+            ? 'purple-blue'
+            : service.color.includes('blue')
+            ? 'blue-teal'
+            : service.color.includes('teal')
+            ? 'green-blue'
+            : service.color.includes('green')
+            ? 'green-blue'
+            : 'orange-red'
+        }
+      >
+        Learn more
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 ml-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </GradientButton>
+    </div>
+  </AnimatedCard>
+</motion.div>
+
+    ))}
+  </div>
+
+  {/* Second row — 4 cards */}
+    {/* Second row — 4 cards */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full">
+    {services.slice(4, 8).map((service, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="h-full"
+      >
+        <AnimatedCard
+          className="flex flex-col justify-between h-full min-h-[500px] p-5 sm:p-6 md:p-8"
+          glowColor={
+            service.color.includes('purple')
+              ? 'rgba(139, 92, 246, 0.3)'
+              : service.color.includes('blue')
+              ? 'rgba(59, 130, 246, 0.3)'
+              : service.color.includes('teal')
+              ? 'rgba(20, 184, 166, 0.3)'
+              : service.color.includes('green')
+              ? 'rgba(16, 185, 129, 0.3)'
+              : 'rgba(249, 115, 22, 0.3)'
+          }
+        >
+          {/* Card Content */}
+          <div className="flex flex-col flex-1">
+            <div
+              className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 transform transition-transform hover:scale-110 duration-300`}
+            >
+              <i className={`${service.icon} text-2xl text-white`}></i>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
+              {service.title}
+            </h3>
+
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed flex-grow">
+              {service.description}
+            </p>
+
+            {/* Spacer for consistent button placement */}
+            <div className="flex-grow"></div>
           </div>
+
+          {/* Matching Button (same as first row) */}
+          <div className="mt-auto pt-6">
+            <GradientButton
+              href="#contact"
+              size="sm"
+              className="flex items-center gap-1 justify-center"
+              gradient={
+                service.color.includes('purple')
+                  ? 'purple-blue'
+                  : service.color.includes('blue')
+                  ? 'blue-teal'
+                  : service.color.includes('teal')
+                  ? 'green-blue'
+                  : service.color.includes('green')
+                  ? 'green-blue'
+                  : 'orange-red'
+              }
+            >
+              Learn more
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </GradientButton>
+          </div>
+        </AnimatedCard>
+      </motion.div>
+    ))}
+  </div>
+
+</div>
+
+
+
         </div>
       </section>
 
       {/* Featured Work Section goes here */}
 
-      <section className="py-20 bg-secondary relative overflow-hidden">
+      <section className="py-20 bg-secondary relative overflow-hidden .services-section">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -405,60 +764,105 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Visible glowing divider between Our Process and Testimonials */}
+<div className="relative w-full h-[2px] my-16">
+  {/* Stronger glow layer */}
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/60 to-transparent blur-md opacity-90"></div>
+  {/* Inner light layer */}
+ 
+</div>
 
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-black/10 z-0"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Client Testimonials</span>
-            </h2>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">
-              Hear what our clients have to say about their experience working with us.
-            </p>
-          </motion.div>
+<section className="py-20 bg-secondary relative overflow-hidden testimonials-section">
+
+  <div className="container mx-auto px-4">
+    {/* Header */}
+    <motion.div
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        Client Testimonials
+      </h2>
+      <p className="text-xl text-white/70 max-w-2xl mx-auto">
+        Hear what our clients have to say about their experience working with us.
+      </p>
+    </motion.div>
+  <div className="relative overflow-hidden">
+          <style>
+            {`
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              .animate-scroll {
+                animation: scroll 40s linear infinite;
+              }
+              .animate-scroll:hover {
+                animation-play-state: paused;
+              }
+            `}
+          </style>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+          <div className="flex gap-6 animate-scroll w-max">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div 
+                key={index}
+                 onClick={() => testimonial.website && window.open(testimonial.website, '_blank')}
+                className="relative bg-black bg-opacity-50 rounded-xl shadow-lg p-8 flex flex-col min-w-[380px] max-w-[380px] flex-shrink-0 hover:shadow-xl transition-shadow duration-300"
               >
-                <AnimatedCard className="p-8 h-full">
-                  <div className="flex items-center mb-6">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="w-16 h-16 rounded-full object-cover mr-4"
-                    />
-                    <div>
-                      <h3 className="text-lg font-bold">{testimonial.name}</h3>
-                      <p className="text-white/70 text-sm">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-white/80 italic mb-4">"{testimonial.content}"</p>
-                  <div className="flex text-yellow-500">
+
+                {/* Quote Icon and Stars */}
+                <div className="mb-4">
+               
+                  <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                       </svg>
                     ))}
                   </div>
-                </AnimatedCard>
-              </motion.div>
+                </div>
+
+                {/* Content */}
+               <p className="text-white/80 text-base leading-relaxed mb-8 flex-grow min-h-[180px]">
+  {testimonial.content}
+</p>
+
+
+                {/* Author Info */}
+                <div className="flex items-center gap-4 mt-auto pt-4">
+                  <img 
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full ring-2 ring-blue-100"
+                  />
+                  <div>
+  <h4 className="font-semibold text-white text-base">
+    {testimonial.name}
+  </h4>
+  <p className="text-sm font-semibold text-white/70">
+    {testimonial.role}
+  </p>
+</div>
+
+
+                </div>
+              </div>
             ))}
           </div>
         </div>
-      </section>
+  </div>
+</section>
+
+
+     
 
       {/* Tech Stack section */}
 
