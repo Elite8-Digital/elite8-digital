@@ -151,8 +151,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
   return (
     <div className={`relative flex items-center mb-32 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
       {/* Content Card */}
-      <div 
-        className={`w-5/12 transform transition-all duration-1000 ${
+     <div 
+  className={`w-[90%] sm:w-7/12 md:w-5/12 transform transition-all duration-1000 ${
+
           isVisible 
             ? 'translate-x-0 translate-y-0 opacity-100 rotate-0' 
             : isLeft 
@@ -502,4 +503,5 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
     </div>
     </MainLayout>
   );
+
 }
