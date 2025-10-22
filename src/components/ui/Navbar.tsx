@@ -31,7 +31,7 @@ export default function Navbar() {
 
   const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Portfolio', path: '/portfolio' },
+  // { name: 'Portfolio', path: '/portfolio' },
   { name: 'Careers', path: '/careers' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
@@ -180,3 +180,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
