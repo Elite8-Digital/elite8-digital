@@ -11,7 +11,7 @@ type Props = {
 
 const MainLayout = ({ children }: Props) => {
 	const location = useLocation();
-	const navigate = useNavigate();
+	const navigate = useNavigate(); 
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	
 	useEffect(() => {
@@ -312,7 +312,7 @@ const MainLayout = ({ children }: Props) => {
 								{ name: 'Home', path: '/' },
 								// { name: 'Work', path: '/work' },
 								{ name: 'About', path: '/about' },
-								{ name: 'Portfolio', path: '/portfolio' },
+								// { name: 'Portfolio', path: '/portfolio' },
 								{ name: 'Contact Us', path: '/contact' },
 								{ name: 'Careers', path: '/careers' }
 							]},
@@ -414,3 +414,4 @@ const NavLink = ({ to, label, currentPath }: NavLinkProps) => {
 };
 
 export default MainLayout;
+
