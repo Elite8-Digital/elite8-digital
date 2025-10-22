@@ -78,7 +78,7 @@ const MainLayout = ({ children }: Props) => {
       key={location.pathname} // re-renders on route change
       items={[
         { label: "Home", href: "/" },
-        { label: "Portfolio", href: "/portfolio" },
+        // { label: "Portfolio", href: "/portfolio" },
         { label: "Careers", href: "/careers" },
         { label: "About", href: "/about" },
         { label: "Contact Us", href: "/contact" },
@@ -414,4 +414,5 @@ const NavLink = ({ to, label, currentPath }: NavLinkProps) => {
 };
 
 export default MainLayout;
+
 
