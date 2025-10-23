@@ -550,7 +550,7 @@ section.testimonials-section p {
   className="h-full"
 >
   <AnimatedCard
-    className="flex flex-col justify-between h-full min-h-[500px] p-5 sm:p-6 md:p-8"
+    className="flex flex-col justify-between h-full min-h-[380px] sm:min-h-[450px] lg:min-h-[500px]"
     glowColor={
       service.color.includes('purple')
         ? 'rgba(139, 92, 246, 0.3)'
@@ -640,7 +640,7 @@ section.testimonials-section p {
         className="h-full"
       >
         <AnimatedCard
-          className="flex flex-col justify-between h-full min-h-[500px] p-5 sm:p-6 md:p-8"
+    className="flex flex-col justify-between h-full min-h-[380px] sm:min-h-[450px] lg:min-h-[500px]"
           glowColor={
             service.color.includes('purple')
               ? 'rgba(139, 92, 246, 0.3)'
