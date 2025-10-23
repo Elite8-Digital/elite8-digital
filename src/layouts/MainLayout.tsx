@@ -166,7 +166,7 @@ const MainLayout = ({ children }: Props) => {
 								</div>
 								
 							<nav className="flex flex-col space-y-6">
-  {['Home', 'Portfolio', 'About', 'Careers', 'Contact Us'].map((item, index) => (
+  {['Home','About', 'Careers', 'Contact Us'].map((item, index) => (
     <motion.div
       key={item}
       initial={{ opacity: 0, x: -20 }}
@@ -414,5 +414,6 @@ const NavLink = ({ to, label, currentPath }: NavLinkProps) => {
 };
 
 export default MainLayout;
+
 
 
