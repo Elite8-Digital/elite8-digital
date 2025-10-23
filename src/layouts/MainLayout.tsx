@@ -174,17 +174,28 @@ const MainLayout = ({ children }: Props) => {
       transition={{ delay: index * 0.1 }}
     >
       <Link
-        to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-        className={`text-2xl font-bold ${
-          location.pathname ===
-          (item === 'Home' ? '/' : `/${item.toLowerCase()}`)
-            ? 'text-primary'
-            : 'text-white hover:text-primary'
-        } transition-colors`}
-        onClick={() => setMobileMenuOpen(false)}
-      >
-        {item}
-      </Link>
+  to={
+    item === 'Home'
+      ? '/'
+      : item === 'Contact Us'
+      ? '/contact'
+      : `/${item.toLowerCase().replace(/\s+/g, '-')}`
+  }
+  className={`text-2xl font-bold ${
+    location.pathname ===
+    (item === 'Home'
+      ? '/'
+      : item === 'Contact Us'
+      ? '/contact'
+      : `/${item.toLowerCase().replace(/\s+/g, '-')}`)
+      ? 'text-primary'
+      : 'text-white hover:text-primary'
+  } transition-colors`}
+  onClick={() => setMobileMenuOpen(false)}
+>
+  {item}
+</Link>
+
     </motion.div>
   ))}
 </nav>
@@ -414,6 +425,7 @@ const NavLink = ({ to, label, currentPath }: NavLinkProps) => {
 };
 
 export default MainLayout;
+
 
 
 
