@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 interface AnimatedCardProps {
   children: React.ReactNode;
@@ -16,60 +15,72 @@ export default function AnimatedCard({
   const [rotateY, setRotateY] = useState(0);
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   
   const cardRef = useRef<HTMLDivElement>(null);
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     
-    const rect = cardRef.current.getBoundingClientRect();
+    // Disable 3D effect on mobile/tablet
+    if (window.innerWidth < 1024) return;
     
+    const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    const rotX = ((y - rect.height / 2) / rect.height) * 10;
-    const rotY = ((rect.width / 2 - x) / rect.width) * 10;
+    // Reduced rotation intensity for better experience
+    const rotX = ((y - rect.height / 2) / rect.height) * 6;
+    const rotY = ((rect.width / 2 - x) / rect.width) * 6;
     
     setRotateX(rotX);
     setRotateY(rotY);
-    
     setMouseX(x);
     setMouseY(y);
+  };
+  
+  const handleMouseEnter = () => {
+    setIsHovering(true);
   };
   
   const handleMouseLeave = () => {
     setRotateX(0);
     setRotateY(0);
+    setIsHovering(false);
   };
   
+  // Only apply 3D transform on desktop
+  const transform = typeof window !== 'undefined' && window.innerWidth >= 1024
+    ? `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+    : 'none';
+  
   return (
-    <motion.div
+    <div
       ref={cardRef}
-      className={`relative overflow-hidden rounded-xl bg-secondary/50 backdrop-blur-sm border border-white/10 ${className}`}
+      className={`relative overflow-hidden rounded-lg sm:rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:border-white/20 h-full ${className}`}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',
+        transform: transform,
+        transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease',
       }}
-      animate={{
-        rotateX: rotateX,
-        rotateY: rotateY,
-      }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
-      <motion.div
-        className="absolute -inset-[100px] opacity-0 pointer-events-none"
+      {/* Glow effect - only on desktop */}
+      <div
+        className="absolute -inset-[100px] pointer-events-none transition-opacity duration-300 hidden lg:block"
         style={{
           background: `radial-gradient(circle at ${mouseX}px ${mouseY}px, ${glowColor} 0%, transparent 70%)`,
+          opacity: isHovering ? 0.6 : 0,
         }}
-        animate={{
-          opacity: rotateX !== 0 || rotateY !== 0 ? 0.6 : 0,
-        }}
-        transition={{ duration: 0.3 }}
       />
       
-      <div className="relative z-10">{children}</div>
-    </motion.div>
+      {/* Card content with proper padding and flex layout */}
+      <div className="relative z-10 w-full h-full flex flex-col p-5 sm:p-6 lg:p-8">
+        {children}
+      </div>
+    </div>
   );
 }
