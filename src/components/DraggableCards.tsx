@@ -148,17 +148,16 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
     window.open(item.link, '_blank');
   };
 
-  return (
-    <div className={`relative flex items-center mb-32 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
+   return (
+    <div className={`relative flex items-center mb-16 sm:mb-24 md:mb-32 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col md:flex-row`}>
       {/* Content Card */}
-     <div 
-  className={`w-[90%] sm:w-7/12 md:w-5/12 transform transition-all duration-1000 ${
-
+      <div 
+        className={`w-full sm:w-[85%] md:w-7/12 lg:w-5/12 transform transition-all duration-1000 ${
           isVisible 
             ? 'translate-x-0 translate-y-0 opacity-100 rotate-0' 
             : isLeft 
-              ? '-translate-x-32 translate-y-10 opacity-0 -rotate-12' 
-              : 'translate-x-32 translate-y-10 opacity-0 rotate-12'
+              ? 'md:-translate-x-32 -translate-y-10 md:translate-y-10 opacity-0 md:-rotate-12' 
+              : 'md:translate-x-32 -translate-y-10 md:translate-y-10 opacity-0 md:rotate-12'
         }`}
         style={{ transitionDelay: `${index * 200}ms` }}
       >
@@ -182,7 +181,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
           
           {/* Card with glass morphism */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-500/80 transition-all duration-700 hover:scale-[1.03] hover:-rotate-0.5 shadow-2xl hover:shadow-gray-900/50 overflow-hidden">
-            {/* Animated border gradient - more sophisticated */}
+            {/* Animated border gradient */}
             <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
             <div className="absolute inset-[1.5px] bg-gradient-to-br from-gray-900/98 via-gray-800/98 to-gray-900/98 backdrop-blur-xl rounded-2xl"></div>
             
@@ -191,15 +190,15 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
             
             <div className="relative">
               {/* Image with overlay */}
-               <div className="relative max-h-[320px] overflow-hidden rounded-t-2xl">
-                  <img
-                       src={item.image}
-                       alt={item.title}
-                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000 filter group-hover:brightness-110"
-                    />
-                 {/* Multi-layer gradient overlay for depth */}
-                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-700"></div>
-                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-20 mix-blend-overlay transition-opacity duration-700`}></div>
+              <div className="relative max-h-[320px] overflow-hidden rounded-t-2xl">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000 filter group-hover:brightness-110"
+                />
+                {/* Multi-layer gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-700"></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-20 mix-blend-overlay transition-opacity duration-700`}></div>
                 
                 {/* Elegant corner accents */}
                 <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -220,30 +219,30 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
               </div>
               
               {/* Content */}
-              <div className="p-7 relative">
+              <div className="p-5 sm:p-6 md:p-7 relative">
                 {/* Subtle inner glow */}
                 <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-50`}></div>
                 
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${item.color} transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-xl relative`}>
+                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-2.5 md:p-3 rounded-xl bg-gradient-to-br ${item.color} transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-xl relative`}>
                     <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500 rounded-xl`}></div>
-                    <Icon className="w-6 h-6 text-white relative z-10" />
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white relative z-10" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-500 tracking-tight" style={{backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`}}>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-500 tracking-tight" style={{backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`}}>
                     {item.title}
                   </h3>
                 </div>
                 
-                <p className="text-gray-400 text-sm leading-relaxed mb-5 group-hover:text-gray-300 transition-colors duration-500 pl-1">
+                <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 group-hover:text-gray-300 transition-colors duration-500 pl-1">
                   {item.description}
                 </p>
 
                 {/* Enhanced link indicator */}
-                <div className="flex items-center gap-2 text-sm font-semibold pt-3 border-t border-gray-800 group-hover:border-gray-700 transition-colors duration-500">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold pt-2.5 sm:pt-3 border-t border-gray-800 group-hover:border-gray-700 transition-colors duration-500">
                   <span className={`bg-gradient-to-r ${item.color} bg-clip-text text-transparent group-hover:tracking-wide transition-all duration-300`}>
                     View Details
                   </span>
-                  <ExternalLink className={`w-4 h-4 text-gray-500 group-hover:text-gray-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500`} />
+                  <ExternalLink className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500 group-hover:text-gray-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500`} />
                 </div>
               </div>
             </div>
@@ -252,7 +251,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
       </div>
       
       {/* Center Line Dot */}
-      <div className="w-2/12 flex justify-center relative z-10">
+      <div className="hidden md:flex w-2/12 justify-center relative z-10">
         <div 
           className={`relative transform transition-all duration-1000 ${
             isVisible ? 'scale-100 opacity-100 rotate-0' : 'scale-0 opacity-0 rotate-180'
@@ -286,7 +285,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isVisible }) =
       </div>
       
       {/* Empty space for alignment */}
-      <div className="w-5/12"></div>
+      <div className="hidden md:block w-5/12"></div>
     </div>
   );
 };
@@ -295,8 +294,8 @@ export default function AdvancedTimeline() {
   const [visibleItems, setVisibleItems] = useState(new Set());
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-const observerRef = useRef<IntersectionObserver | null>(null);
-const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -306,9 +305,8 @@ const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-  setMousePosition({ x: e.clientX, y: e.clientY });
-};
-
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
@@ -317,7 +315,7 @@ const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-const index = parseInt((entry.target as HTMLElement).dataset.index!);
+            const index = parseInt((entry.target as HTMLElement).dataset.index!);
             setVisibleItems((prev) => new Set([...prev, index]));
           }
         });
@@ -326,7 +324,7 @@ const index = parseInt((entry.target as HTMLElement).dataset.index!);
     );
 
     itemRefs.current.forEach((ref) => {
-if (ref && observerRef.current) observerRef.current.observe(ref);
+      if (ref && observerRef.current) observerRef.current.observe(ref);
     });
 
     return () => {
@@ -339,8 +337,7 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
   }, []);
 
   return (
-    <MainLayout>
-    <div className="min-h-screen bg-black text-white overflow-x-hidden py-20 px-4 relative">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 relative">
       {/* Enhanced background with multiple layers */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-slate-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -352,22 +349,22 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
       </div>
 
       {/* Header */}
-      <div className="max-w-6xl mx-auto mb-24 text-center relative">
-        <div className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-slate-500/10 via-gray-500/10 to-zinc-500/10 border border-slate-500/20 mb-10 backdrop-blur-sm shadow-2xl">
-          <Calendar className="w-5 h-5 text-slate-300" />
-          <span className="text-sm text-slate-200 font-medium tracking-wider uppercase">Our Journey Through Time</span>
+      <div className="max-w-6xl mx-auto mb-16 sm:mb-20 md:mb-24 text-center relative">
+        <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full bg-gradient-to-r from-slate-500/10 via-gray-500/10 to-zinc-500/10 border border-slate-500/20 mb-6 sm:mb-8 md:mb-10 backdrop-blur-sm shadow-2xl">
+          <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300" />
+          <span className="text-xs sm:text-sm text-slate-200 font-medium tracking-wider uppercase">Our Journey Through Time</span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-slate-200 via-gray-100 to-zinc-200 bg-clip-text text-transparent tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-7 md:mb-8 bg-gradient-to-r from-slate-200 via-gray-100 to-zinc-200 bg-clip-text text-transparent tracking-tight leading-tight px-4">
           Timeline of Excellence
         </h1>
         
-        <div className="relative inline-block">
-          <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
+        <div className="relative inline-block px-4">
+          <p className="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             A visual journey through our milestones, achievements, and the moments that defined our success
           </p>
           {/* Elegant underline accent */}
-          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent rounded-full opacity-50"></div>
+          <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent rounded-full opacity-50"></div>
         </div>
 
         {/* Enhanced floating orbs */}
@@ -377,10 +374,9 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
       </div>
 
       {/* Timeline */}
-      <div className="max-w-6xl mx-auto relative mt-16 md:mt-24">
-
+      <div className="max-w-6xl mx-auto relative mt-12 sm:mt-16 md:mt-20 lg:mt-24">
         {/* Enhanced animated vertical line with layered effects */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full">
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full">
           {/* Background glow */}
           <div className="absolute inset-0 w-2 -left-0.75 bg-gradient-to-b from-slate-400/20 via-gray-400/20 to-zinc-400/20 blur-sm"></div>
           
@@ -412,17 +408,17 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
       </div>
 
       {/* Enhanced footer decoration */}
-      <div className="max-w-6xl mx-auto mt-32 flex flex-col items-center gap-6">
+      <div className="max-w-6xl mx-auto mt-20 sm:mt-24 md:mt-28 lg:mt-32 flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
         <div className="relative">
-          <div className="w-64 h-1 rounded-full bg-gradient-to-r from-slate-400 via-gray-300 to-zinc-400 opacity-50 animate-pulse-slow shadow-lg"></div>
+          <div className="w-48 sm:w-56 md:w-64 h-1 rounded-full bg-gradient-to-r from-slate-400 via-gray-300 to-zinc-400 opacity-50 animate-pulse-slow shadow-lg"></div>
           <div className="absolute inset-0 blur-xl bg-gradient-to-r from-slate-400 via-gray-300 to-zinc-400 opacity-30"></div>
           
           {/* Side accents */}
-          <div className="absolute top-1/2 -left-8 w-6 h-6 rounded-full bg-gradient-to-r from-slate-400 to-gray-400 opacity-30 blur-md animate-pulse-slow"></div>
-          <div className="absolute top-1/2 -right-8 w-6 h-6 rounded-full bg-gradient-to-r from-gray-400 to-zinc-400 opacity-30 blur-md animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 -left-6 sm:-left-8 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-slate-400 to-gray-400 opacity-30 blur-md animate-pulse-slow"></div>
+          <div className="absolute top-1/2 -right-6 sm:-right-8 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-gray-400 to-zinc-400 opacity-30 blur-md animate-pulse-slow" style={{animationDelay: '1s'}}></div>
         </div>
         
-        <p className="text-gray-500 text-sm tracking-widest uppercase font-light">The Journey Continues</p>
+        <p className="text-gray-500 text-xs sm:text-sm tracking-widest uppercase font-light">The Journey Continues</p>
       </div>
 
       <style>{`
@@ -501,7 +497,5 @@ if (ref && observerRef.current) observerRef.current.observe(ref);
         }
       `}</style>
     </div>
-    </MainLayout>
   );
-
 }

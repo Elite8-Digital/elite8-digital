@@ -78,7 +78,7 @@ const MainLayout = ({ children }: Props) => {
       key={location.pathname} // re-renders on route change
       items={[
         { label: "Home", href: "/" },
-        // { label: "Portfolio", href: "/portfolio" },
+        { label: "Portfolio", href: "/portfolio" },
         { label: "Careers", href: "/careers" },
         { label: "About", href: "/about" },
         { label: "Contact Us", href: "/contact" },
@@ -323,7 +323,7 @@ const MainLayout = ({ children }: Props) => {
 								{ name: 'Home', path: '/' },
 								// { name: 'Work', path: '/work' },
 								{ name: 'About', path: '/about' },
-								// { name: 'Portfolio', path: '/portfolio' },
+								{ name: 'Portfolio', path: '/portfolio' },
 								{ name: 'Contact Us', path: '/contact' },
 								{ name: 'Careers', path: '/careers' }
 							]},
