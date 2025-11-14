@@ -7,6 +7,7 @@ import Careers from '../pages/Careers';
 import PP from '../pages/PP';
 import TC from '../pages/TC';
 import Portfolio from '@/pages/Portfolio';
+import Shaadi from '@/pages/Shaadi';
 
 const AppRoutes = () => {
 	return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
 			<Route path="/privacy-policy" element={<PP />} />
 			<Route path="/terms-condition" element={<TC />} />
 			<Route path="/portfolio" element={<Portfolio />} />
+			<Route path="/Aditi-weds-Tarunesh-23-Nov-2025" element={<Shaadi />} />
 		</Routes>
 	);
 };
