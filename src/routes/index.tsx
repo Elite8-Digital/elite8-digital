@@ -8,6 +8,7 @@ import PP from '../pages/PP';
 import TC from '../pages/TC';
 import Portfolio from '@/pages/Portfolio';
 import Shaadi from '@/pages/Shaadi';
+import GhibliPhotoConverter from '@/pages/GhibliPhotoConverter';
 
 const AppRoutes = () => {
 	return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
 			<Route path="/terms-condition" element={<TC />} />
 			<Route path="/portfolio" element={<Portfolio />} />
 			<Route path="/Aditi-weds-Tarunesh-23-Nov-2025" element={<Shaadi />} />
+			<Route path="/ghibli" element={<GhibliPhotoConverter />} />
 		</Routes>
 	);
 };
