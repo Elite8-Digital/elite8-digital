@@ -9,6 +9,9 @@ import TC from '../pages/TC';
 import Portfolio from '@/pages/Portfolio';
 import Shaadi from '@/pages/Shaadi';
 import GhibliPhotoConverter from '@/pages/GhibliPhotoConverter';
+import ShaadiSongsQuiz from '@/pages/ShaadiSongsQuiz';
+import PixelArtRevealGame from '@/pages/PixelArtRevealGame';
+import LogoRecognitionGame from '@/pages/LogoRecognitionGame';
 
 const AppRoutes = () => {
 	return (
@@ -23,6 +26,9 @@ const AppRoutes = () => {
 			<Route path="/portfolio" element={<Portfolio />} />
 			<Route path="/Aditi-weds-Tarunesh-23-Nov-2025" element={<Shaadi />} />
 			<Route path="/ghibli" element={<GhibliPhotoConverter />} />
+			<Route path="/songs" element={<ShaadiSongsQuiz />} />
+			<Route path="/pixel" element={<PixelArtRevealGame />} />
+			<Route path="/logo-recognition" element={<LogoRecognitionGame />} />
 		</Routes>
 	);
 };

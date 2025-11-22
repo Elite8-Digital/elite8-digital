@@ -138,6 +138,58 @@ const Shaadi = () => {
             </a>
           </div>
 
+          {/* Wedding Games Section */}
+          <div className="bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 border border-rose-100">
+            <h2 className="text-3xl md:text-4xl font-bold text-rose-900 mb-6">
+              Games! 🎮
+            </h2>
+            
+            <p className="text-rose-600 text-lg mb-8">
+              Test your skills and have fun with these interactive games!
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* Songs Quiz */}
+              <a 
+                href="/#/songs"
+                className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-lg transform hover:scale-105 group"
+              >
+                <div className="text-center">
+                  <div className="text-5xl mb-3 group-hover:animate-pulse">🎵</div>
+                  <h3 className="text-xl font-bold text-rose-900 mb-2">Bollywood Songs Quiz</h3>
+                  <p className="text-rose-600 text-sm mb-4">Guess the wedding song and win points!</p>
+                  <span className="text-purple-600 font-semibold text-sm">Play Now →</span>
+                </div>
+              </a>
+
+              {/* Pixel Art Game */}
+              <a 
+                href="/#/pixel"
+                className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl p-6 border-2 border-orange-200 hover:border-orange-400 transition-all hover:shadow-lg transform hover:scale-105 group"
+              >
+                <div className="text-center">
+                  <div className="text-5xl mb-3 group-hover:animate-pulse">🎨</div>
+                  <h3 className="text-xl font-bold text-rose-900 mb-2">Pixel Art Reveal</h3>
+                  <p className="text-rose-600 text-sm mb-4">Guess the hidden image before it reveals!</p>
+                  <span className="text-orange-600 font-semibold text-sm">Play Now →</span>
+                </div>
+              </a>
+
+              {/* Logo Recognition */}
+              <a 
+                href="/#/logo-recognition"
+                className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-lg transform hover:scale-105 group"
+              >
+                <div className="text-center">
+                  <div className="text-5xl mb-3 group-hover:animate-pulse">🏆</div>
+                  <h3 className="text-xl font-bold text-rose-900 mb-2">Logo Recognition</h3>
+                  <p className="text-rose-600 text-sm mb-4">Test your brand knowledge!</p>
+                  <span className="text-blue-600 font-semibold text-sm">Play Now →</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
           {/* Coming Soon Features */}
           <div className="bg-white/60 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 border border-rose-100">
             <h2 className="text-3xl md:text-4xl font-bold text-rose-900 mb-6">
