@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import img from '@/assets/elite1.png';
+import img from '@/assets/elite1.jpeg';
 import ProjectsHeader from '@/components/ui/ProjectHeader';
 import vid1 from "@/assets/drvikas.mp4";
 import vid2 from "@/assets/IB.mp4";
