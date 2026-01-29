@@ -1,46 +1,64 @@
-import { useState, useEffect } from 'react';
-import AppRoutes from './routes';
-import AnimatedCursor from './components/ui/AnimatedCursor';
-import CurtainAnimation from './components/ui/CurtainAnimation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import MainLayout from './components/layout/MainLayout';
+//import Portfolio from './pages/Portfolio';
+import AboutPage from './pages/About';
+import ContactSection from './pages/LetsTalk';
+import 'remixicon/fonts/remixicon.css';
+import ScrollToTop from './components/layout/ScrollToTop';
+import PortfolioWrapper from './pages/PortfolioWrapper';
+import Services from './components/home/Services';
 
-const App = () => {
-	const location = useLocation();
-	const [showCurtain, setShowCurtain] = useState(true);
+// 🧭 Lazy-loaded pages
+const Home = lazy(() => import('./pages/Home'));
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [location.pathname]);
-
-	// Disable default cursor when custom cursor is active
-	useEffect(() => {
-		document.body.classList.add('custom-cursor');
-		return () => {
-			document.body.classList.remove('custom-cursor');
-		};
-	}, []);
-
-	const handleCurtainComplete = () => {
-		setShowCurtain(false);
-	};
+function App() {
 
 	return (
-		<>
-			<AnimatedCursor />
-			{/* {showCurtain && <CurtainAnimation onComplete={handleCurtainComplete} />} */}
-			<AnimatePresence mode="wait">
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{ duration: 0.5 }}
+		<Suspense
+			// fallback={
+			// 	<div className="flex items-center justify-center min-h-screen bg-[#690B22]">
+			// 		<div className="scale-[2]">
+			// 			<DPSLoading mode="suspense" size="md" />
+			// 		</div>
+			// 	</div>
+			// }
+		>
+			<ScrollToTop/>
+			<Routes>
+				{/* 🏠 Main Layout Wrapper */}
+				<Route
+					path="/"
+					element={
+						<MainLayout>
+							<Outlet />
+						</MainLayout>
+					}
 				>
-					<AppRoutes />
-				</motion.div>
-			</AnimatePresence>
-		</>
+					{/* ✅ Main Pages */}
+					<Route index element={<Home />} />
+					<Route path="portfolio" element={<PortfolioWrapper />} />
+					<Route path="contact" element={<ContactSection />} />
+					<Route path="about" element={<AboutPage />} />
+					<Route path="services" element={<Services />} />
+
+
+					{/* 🚫 Catch-all for invalid routes */}
+					<Route path="*" element={<Navigate to="/404" replace />} />
+				</Route>
+
+				{/* 🧱 Standalone 404 page */}
+				{/* <Route
+					path="/404"
+					element={
+						<MainLayout>
+							<NotFound />
+						</MainLayout>
+					}
+				/> */}
+			</Routes>
+		</Suspense>
 	);
-};
+}
 
 export default App;

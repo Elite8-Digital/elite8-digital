@@ -8,15 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+package-lock.json
 dist
 dist-ssr
-package-lock.json
-yarn.lock
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -24,3 +21,7 @@ yarn.lock
 *.njsproj
 *.sln
 *.sw?
+
+
+# env files
+.env

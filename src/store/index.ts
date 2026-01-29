@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
-// import rootReducer from './rootReducer';
+import rootReducer from '../store/rootReducer';
 
 export const store = configureStore({
-	reducer: {},
+	reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;
