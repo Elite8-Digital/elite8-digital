@@ -248,7 +248,7 @@ export default function HorizontalScrollSnap() {
 											loop
 											muted
 											playsInline
-											className="w-full h-[400px] xl:h-[500px] object-cover"
+											className="w-full h-[400px] xl:h-[500px] object-contain"
 										/>
 									</div>
 								</div>

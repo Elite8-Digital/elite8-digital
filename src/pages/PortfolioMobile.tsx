@@ -193,7 +193,7 @@ export default function MobileVerticalScroll() {
 										loop
 										muted
 										playsInline
-										className="w-full h-64 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
+										className="w-full h-64 sm:h-80 object-contain transition-transform duration-700 group-hover:scale-110"
 									>
 										<source
 											src={project.videoUrl}
