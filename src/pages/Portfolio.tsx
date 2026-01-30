@@ -241,7 +241,7 @@ export default function HorizontalScrollSnap() {
 
 								<div className={`relative ${index % 2 === 0 ? 'order-2' : 'order-1'}`}>
 									<div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-3xl opacity-30 animate-pulse"></div>
-									<div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-700 transform hover:scale-105 transition-transform duration-500">
+									<div className="relative rounded-2xl overflow-hidden shadow-2xl  transform hover:scale-105 transition-transform duration-500">
 										<video
 											src={project.videoUrl}
 											autoPlay

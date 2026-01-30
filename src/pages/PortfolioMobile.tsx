@@ -187,7 +187,7 @@ export default function MobileVerticalScroll() {
 							{/* Project Video */}
 							<div className="relative group cursor-pointer">
 								<div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-green-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500 animate-pulse"></div>
-								<div className="relative overflow-hidden rounded-2xl border-2 border-white/10 group-hover:border-white/30 transition-all duration-500 transform group-hover:scale-105">
+								<div className="relative overflow-hidden rounded-2xl  transition-all duration-500 transform group-hover:scale-105">
 									<video
 										autoPlay
 										loop
