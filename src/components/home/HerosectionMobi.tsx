@@ -1,7 +1,10 @@
 import React from 'react';
 import vid from '../../assets/hero.mp4';
+import { useNavigate } from 'react-router-dom';
 
 export default function HeroSectionMobi() {
+  const navigate = useNavigate();
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden ">
       {/* Video Background */}
@@ -75,7 +78,9 @@ export default function HeroSectionMobi() {
             <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-purple-500/50 to-transparent" />
 
             {/* CTA Button */}
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg text-white font-medium text-base sm:text-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 active:scale-95">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg text-white font-medium text-base sm:text-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 active:scale-95">
               <span className="flex items-center gap-2">
                 <svg 
                   className="w-5 h-5" 

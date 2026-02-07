@@ -1,5 +1,6 @@
 import {  useRef } from 'react';
 import vid from '../../assets/hero.mp4';
+import { useNavigate } from 'react-router-dom';
 
 interface FirstSectionProps {
 	scrollProgress: number;
@@ -9,6 +10,7 @@ interface FirstSectionProps {
 
 const FirstSection = ({ scrollProgress, isLoaded, videoOpacity }: FirstSectionProps) => {
 	const sectionRef = useRef<HTMLDivElement | null>(null);
+	const navigate = useNavigate();
 
 	const firstTextOpacity = scrollProgress < 0.5 ? Math.max(0, 1 - scrollProgress * 4) : 0;
 
@@ -114,7 +116,9 @@ const FirstSection = ({ scrollProgress, isLoaded, videoOpacity }: FirstSectionPr
 							</div>
 						</div>
 						<div className="w-20 md:w-32 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
-						<button className="bg-purple-600 hover:bg-purple-800 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 flex items-center gap-3 group">
+						<button 
+							onClick={() => navigate('/contact')}
+							className="bg-purple-600 hover:bg-purple-800 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 flex items-center gap-3 group">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
 								<rect x="3" y="6" width="18" height="15" rx="2" stroke="currentColor" strokeWidth="2" />
 								<path
