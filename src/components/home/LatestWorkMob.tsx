@@ -2,7 +2,7 @@
 
 import vid1 from '../../assets/nymara_demo.mp4';
 import vid2 from '../../assets/standford.mp4';
-import vid3 from '../../assets/IB.mp4';
+import vid3 from '../../assets/lets.mp4';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 export default function LetsWorkMob() {

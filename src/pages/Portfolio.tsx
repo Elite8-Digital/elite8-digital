@@ -5,13 +5,13 @@ import img from '@/assets/elite1.jpeg';
 import ProjectsHeader from '@/components/ui/ProjectHeader';
 import vid1 from '@/assets/drvikas.mp4';
 import vid2 from '@/assets/IB.mp4';
-import vid3 from '@/assets/IB.mp4';
+import vid3 from '@/assets/lets.mp4';
 import vid4 from '@/assets/onesty_demo.mp4';
 import vid5 from '@/assets/temple.mp4';
 import vid6 from '../assets/standford.mp4';
 import vid7 from '../assets/nymara_demo.mp4';
 // Import your images for the last three projects
-import invo from '@/assets/invoice.png'; // Replace with your actual image paths
+import invo from '@/assets/invoice1.png'; // Replace with your actual image paths
 import school from '@/assets/school.png';
 import college from '@/assets/college.png';
 

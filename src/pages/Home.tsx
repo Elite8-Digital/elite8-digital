@@ -26,16 +26,19 @@ const Home = () => {
       <div className="md:hidden">
         <SecondSectionMobWrapper />
       </div>
+
+      <div className="flex justify-center items-center py-8 sm:py-16">
+        <Clients />
+      </div>
       <div className='flex flex-row justify-center items-center text-center mb-8 sm:mb-0 text-white font-serif text-5xl font-bold mt-20 md:mt-0'>LATEST WORK</div>
       <div className="md:hidden">
         <LetsWorkMob />
       </div>
+    
       <div className="hidden md:block">
       <LetsWork />
       </div>
-      <div className="flex justify-center items-center py-16">
-        <Clients />
-      </div>
+      
       
       {/* Show ServicesMobile on small screens, Services on md and above */}
       <div className="md:hidden">
