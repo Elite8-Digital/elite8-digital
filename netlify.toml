@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/app/*"
-  to = "https://fastidious-pothos-ec6b04.netlify.app/:splat"
-  status = 200
-  force = true
